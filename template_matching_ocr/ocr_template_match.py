@@ -13,6 +13,12 @@ ap.add_argument("-t", "--template", required=True,
 	help="path to template OCR-A image")
 args = vars(ap.parse_args())
 
+a=args["image"]
+image = cv2.imdecode(np.fromfile(a, dtype=np.uint8), cv2.IMREAD_UNCHANGED)
+cv2.imshow("My PNG Image", image)
+cv2.waitKey(0)
+
+
 # 指定信用卡类型
 FIRST_NUMBER = {
 	"3": "American Express",

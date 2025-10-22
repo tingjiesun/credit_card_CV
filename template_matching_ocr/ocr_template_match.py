@@ -13,7 +13,7 @@ ap.add_argument("-t", "--template", required=True,
 	help="path to template OCR-A image")
 args = vars(ap.parse_args())
 
-a=args["image"]
+a=args["template"]
 image = cv2.imdecode(np.fromfile(a, dtype=np.uint8), cv2.IMREAD_UNCHANGED)
 cv2.imshow("My PNG Image", image)
 cv2.waitKey(0)
@@ -31,6 +31,7 @@ def cv_show(name,img):
 	cv2.imshow(name, img)
 	cv2.waitKey(0)
 	cv2.destroyAllWindows()
+
 # 读取一个模板图像
 img = cv2.imread(args["template"])
 cv_show('img',img)
